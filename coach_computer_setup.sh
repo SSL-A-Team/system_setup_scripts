@@ -14,14 +14,9 @@ source src/enable_sudo_actions.sh
 source src/error_trap_utils.sh
 
 #
-# Update base OS packages
-#
-sudo apt update
-sudo apt upgrade
-
-#
 # Configuration steps
 #
+./src/upgrade_apt_packages.sh
 ./src/install_league_docker_images.sh
 ./src/install_ssl_quality_inspector.sh
 ./src/setup_software_repo.sh
