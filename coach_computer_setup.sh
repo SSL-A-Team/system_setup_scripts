@@ -6,7 +6,7 @@
 
 SRC_SCRIPT_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/src
 
-source src/color_utils.sh
+source $SRC_SCRIPT_DIR/color_utils.sh
 
 # Make sure we're in the user's home directory
 cd $HOME

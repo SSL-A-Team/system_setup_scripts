@@ -4,22 +4,24 @@
 # intended to run on a machine with a fresh install of Ubuntu. It will install
 # all dependencies and clone and build our software repo.
 
-source src/color_utils.sh
+SRC_SCRIPT_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/src
+
+source $SRC_SCRIPT_DIR/color_utils.sh
 
 # Make sure we're in the user's home directory
 cd $HOME
 
-source src/enable_sudo_actions.sh
+source $SRC_SCRIPT_DIR/enable_sudo_actions.sh
 
-source src/error_trap_utils.sh
+source $SRC_SCRIPT_DIR/error_trap_utils.sh
 
 #
 # Configuration steps
 #
-./src/upgrade_apt_packages.sh
-./src/install_league_docker_images.sh
-./src/install_ssl_quality_inspector.sh
-./src/install_ssl_vision_server.sh
+$SRC_SCRIPT_DIR/upgrade_apt_packages.sh
+$SRC_SCRIPT_DIR/install_league_docker_images.sh
+$SRC_SCRIPT_DIR/install_ssl_quality_inspector.sh
+$SRC_SCRIPT_DIR/install_ssl_vision_server.sh
 
 echo -e "\n\n${GREEN}System configuration complete!${NC}"
 exit 0
