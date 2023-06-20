@@ -12,6 +12,6 @@ echo -e "\n\n${BLUE}Installing SSL vision server.${NC}"
 
 sudo apt install -y terminator
 
-sudo snap install code
+sudo snap install code --classic
 
 echo -e "${GREEN}SSL vision server installation complete.${NC}"

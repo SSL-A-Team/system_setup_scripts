@@ -11,6 +11,9 @@ echo -e "\n\n${BLUE}Setting up firmware repo.${NC}"
 #
 # Clone repository
 #
+if [ -d firmware ]; then
+    rm -rf firmware
+fi
 git clone --recursive git@github.com:SSL-A-Team/firmware.git
 
 #

@@ -6,9 +6,9 @@ SCRIPT_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 source $SCRIPT_DIR/color_utils.sh
 source $SCRIPT_DIR/error_trap_utils.sh
 
-echo -e "\n\n${BLUE}Installing SSL vision server.${NC}"
+echo -e "\n\n${BLUE}Adding ROS to bash profile.${NC}"
 
-BASH_PROFILE_FILE=$HOME/.bash_profile
+BASH_PROFILE_FILE=$HOME/.bashrc
 
 # Make file if it doesn't already exist
 if [ ! -f "$BASH_PROFILE_FILE" ]; then
@@ -27,4 +27,4 @@ if ! grep -q "$ROS_OVERLAY_CMD" "$BASH_PROFILE_FILE"; then
   echo "$ROS_OVERLAY_CMD" >> "$BASH_PROFILE_FILE"
 fi
 
-echo -e "${GREEN}SSL vision server installation complete.${NC}"
+echo -e "${GREEN}Bash profile setup complete.${NC}"

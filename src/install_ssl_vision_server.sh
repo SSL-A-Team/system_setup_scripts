@@ -8,6 +8,9 @@ source $SCRIPT_DIR/error_trap_utils.sh
 
 echo -e "\n\n${BLUE}Installing SSL vision server.${NC}"
 
+if [ -d ssl-vision ]; then
+    rm -rf ssl-vision
+fi
 git clone https://github.com/RoboCup-SSL/ssl-vision.git
 
 pushd ssl-vision

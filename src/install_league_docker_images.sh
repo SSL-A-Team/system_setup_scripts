@@ -11,25 +11,23 @@ echo -e "\n\n${BLUE}Installing league docker images.${NC}"
 #
 # Install docker
 #
-# Based on https://docs.docker.com/engine/install/ubuntu/
-sudo apt-get install -y ca-certificates curl gnupg
-sudo install -m 0755 -d /etc/apt/keyrings
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
-sudo chmod a+r /etc/apt/keyrings/docker.gpg
-echo \
-  "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
-  "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
-  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-sudo apt-get update
-sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+# Have to use docker.io distribution to be compatible with our rosdep dependency
+sudo apt-get install -y docker.io
 
 #
 # Pull league docker images
 #
-docker pull robocupssl/ssl-game-controller
-docker pull robocupssl/ssl-status-board
-docker pull robocupssl/ssl-remote-control
-docker pull robocupssl/ssl-vision-client
-docker pull robocupssl/grsim
+sudo docker pull robocupssl/ssl-game-controller
+sudo docker pull robocupssl/ssl-status-board
+sudo docker pull robocupssl/ssl-remote-control
+sudo docker pull robocupssl/ssl-vision-client
+sudo docker pull robocupssl/grsim
+
+#
+# Add user to docker group for sudo-less commands
+#
+# Note: only takes effect after logging out and back in
+getent group docker || sudo groupadd docker
+sudo usermod -aG docker $USER
 
 echo -e "${GREEN}League docker image installation complete.${NC}"

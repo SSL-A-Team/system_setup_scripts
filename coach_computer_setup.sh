@@ -23,7 +23,8 @@ $SRC_SCRIPT_DIR/install_common_tools.sh
 $SRC_SCRIPT_DIR/install_league_docker_images.sh
 $SRC_SCRIPT_DIR/install_ssl_quality_inspector.sh
 $SRC_SCRIPT_DIR/setup_software_repo.sh
-$SRC_SCRIPT_DIR/setup_firmware_repo.sh
+# Omitting firmware repo because setup script is not automation friendly
+# $SRC_SCRIPT_DIR/setup_firmware_repo.sh
 $SRC_SCRIPT_DIR/add_ros_to_bash_profile.sh
 
 echo -e "\n\n${GREEN}System configuration complete!${NC}"
