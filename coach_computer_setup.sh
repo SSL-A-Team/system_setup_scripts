@@ -17,6 +17,7 @@ source src/error_trap_utils.sh
 # Configuration steps
 #
 ./src/upgrade_apt_packages.sh
+./src/install_common_tools.sh
 ./src/install_league_docker_images.sh
 ./src/install_ssl_quality_inspector.sh
 ./src/setup_software_repo.sh
