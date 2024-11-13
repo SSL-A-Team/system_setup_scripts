@@ -11,7 +11,7 @@ echo -e "\n\n${BLUE}Installing SSL quality inspector.${NC}"
 #
 # Install go
 #
-sudo apt install -y golang-go
+sudo apt install -y golang-go make
 
 #
 # Clone

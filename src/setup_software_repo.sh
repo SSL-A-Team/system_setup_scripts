@@ -18,7 +18,7 @@ sudo apt update && sudo apt install -y curl
 sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
 sudo apt update
-sudo apt install -y ros-jazzy-desktop python3-rosdep2 python3-colcon-common-extensions
+sudo apt install -y ros-dev-tools ros-jazzy-desktop
 
 #
 # Clone repository
@@ -58,10 +58,10 @@ colcon test
 if ! colcon test-result --verbose; then
     read -p "Software tests failed. Continue anyway? (y/N)" RESPONSE
     if [ "$RESPONSE" != "${RESPONSE#[Yy]}" ]; then
+        echo "Ignoring test failures."
+    else
         echo "${RED}Stopping due to test failure.${NC}"
         exit 1
-    else
-        echo "Ignoring test failures."
     fi
 fi
 popd
