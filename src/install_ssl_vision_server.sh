@@ -15,7 +15,7 @@ git clone https://github.com/RoboCup-SSL/ssl-vision.git
 
 pushd ssl-vision
 ./InstallPackagesUbuntu.sh
-cmake -B build #-DUSE_?=true TODO which backend are we using?
+cmake -B build -DUSE_SPINNAKER=true
 make
 popd
 
