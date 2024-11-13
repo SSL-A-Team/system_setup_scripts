@@ -11,14 +11,14 @@ echo -e "\n\n${BLUE}Setting up software repo.${NC}"
 #
 # Install ROS
 #
-# Based on https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html
+# Based on https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debians.html
 sudo apt install software-properties-common
 sudo add-apt-repository -y universe
 sudo apt update && sudo apt install -y curl
 sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
 sudo apt update
-sudo apt install -y ros-humble-desktop python3-rosdep2 python3-colcon-common-extensions
+sudo apt install -y ros-jazzy-desktop python3-rosdep2 python3-colcon-common-extensions
 
 #
 # Clone repository
@@ -34,7 +34,7 @@ popd
 #
 # Install repo dependencies
 #
-source /opt/ros/humble/setup.bash
+source /opt/ros/jazzy/setup.bash
 if [ -f /etc/ros/rosdep/sources.list.d/20-default.list ]; then
     sudo rm /etc/ros/rosdep/sources.list.d/20-default.list
 fi

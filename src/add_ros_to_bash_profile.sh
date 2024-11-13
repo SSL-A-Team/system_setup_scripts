@@ -17,7 +17,7 @@ fi
 
 # Add ROS environment source commands if they don't already exist
 
-ROS_UNDERLAY_CMD="source /opt/ros/humble/setup.bash"
+ROS_UNDERLAY_CMD="source /opt/ros/jazzy/setup.bash"
 if ! grep -q "$ROS_UNDERLAY_CMD" "$BASH_PROFILE_FILE"; then
   echo "$ROS_UNDERLAY_CMD" >> "$BASH_PROFILE_FILE"
 fi
